@@ -19,8 +19,10 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-                    bat 'echo %PASS% | docker login -u %USER% --password-stdin'
-                    bat 'docker push anishasri07/smart-city-dashboard'
+                    bat '''
+                    docker login -u %USER% -p %PASS%
+                    docker push anishasri07/smart-city-dashboard
+                    '''
                 }
             }
         }
