@@ -27,6 +27,13 @@ pipeline {
             }
         }
 
+        stage('Configure Kubeconfig') {
+            steps {
+                bat 'set KUBECONFIG=%USERPROFILE%\\.kube\\config'
+                bat 'kubectl get nodes'
+            }
+        }
+
         stage('Deploy to Kubernetes') {
             steps {
                 bat 'kubectl apply -f deployment.yaml --validate=false'
