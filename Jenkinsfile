@@ -21,9 +21,9 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                     bat 'echo %PASS% | docker login -u %USER% --password-stdin'
                     bat 'docker push anishasri07/smart-city-dashboard'
+                }
+            }
         }
-    }
-}
 
         stage('Deploy to Kubernetes') {
             steps {
