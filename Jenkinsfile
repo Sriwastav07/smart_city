@@ -29,7 +29,7 @@ pipeline {
 
         stage('Configure Kubeconfig') {
             steps {
-                bat 'set KUBECONFIG=%USERPROFILE%\\.kube\\config'
+                bat 'set KUBECONFIG=C:\\Users\\anish\\.kube\\config'
                 bat 'kubectl get nodes'
             }
         }
