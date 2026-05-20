@@ -5,19 +5,19 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'YOUR_GITHUB_REPO_URL'
+                git 'https://github.com/Sriwastav07/smart_city.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t yourname/smart-city-dashboard .'
+                sh 'docker build -t anishasri07/smart-city-dashboard .'
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                sh 'docker push yourname/smart-city-dashboard'
+                sh 'docker push anishasri07/smart-city-dashboard'
             }
         }
 
