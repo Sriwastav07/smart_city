@@ -12,20 +12,20 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t anishasri07/smart-city-dashboard .'
+                bat 'docker build -t anishasri07/smart-city-dashboard .'
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                sh 'docker push anishasri07/smart-city-dashboard'
+                bat 'docker push anishasri07/smart-city-dashboard'
             }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl apply -f deployment.yaml'
-                sh 'kubectl apply -f service.yaml'
+                bat 'kubectl apply -f deployment.yaml'
+                bat 'kubectl apply -f service.yaml'
             }
         }
     }
