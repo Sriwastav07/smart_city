@@ -3,9 +3,10 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
+        stage('Checkout') {
             steps {
-                git 'https://github.com/Sriwastav07/smart_city.git'
+                git branch: 'main',
+                    url: 'https://github.com/Sriwastav07/smart_city.git'
             }
         }
 
