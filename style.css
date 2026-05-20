@@ -1,0 +1,141 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Body & Canvas background */
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  overflow-x: hidden;
+  font-family: 'Orbitron', sans-serif;
+  position: relative;
+}
+
+/* Loading Screen */
+#loading {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  z-index: 9999;
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 2s;
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Canvas for animated background */
+#background {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  padding: 20px;
+}
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+}
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #ccc;
+}
+.btn.glow {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 10px;
+  background: #0ff;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff inset;
+  transition: all 0.3s ease;
+}
+.btn.glow:hover {
+  box-shadow: 0 0 40px #0ff, 0 0 80px #0ff inset;
+}
+
+/* Dashboard Sections */
+section {
+  padding: 50px 20px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+}
+
+/* Cards container */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #0ff inset;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #0ff inset;
+}
+.card h3 {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+.counter {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #0ff;
+}
+
+/* Footer styles */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  border-top: 1px solid #222;
+}
+.social-icons a {
+  margin: 0 10px;
+  color: #0ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.social-icons a:hover {
+  color: #fff;
+}

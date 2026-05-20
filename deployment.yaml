@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smart-city-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: smart-city
+
+  template:
+    metadata:
+      labels:
+        app: smart-city
+
+    spec:
+      containers:
+      - name: smart-city-container
+        image: anishasri07/smart-city-dashboard
+        ports:
+        - containerPort: 80
