@@ -3,11 +3,11 @@ pipeline {
 
     stages {
 
-        // stage('Clone') {
-        //     steps {
-        //         git 'https://github.com/Sriwastav07/smart_city.git'
-        //     }
-        // }
+        stage('Clone') {
+            steps {
+                git 'https://github.com/Sriwastav07/smart_city.git'
+            }
+        }
 
         stage('Build Docker Image') {
             steps {
