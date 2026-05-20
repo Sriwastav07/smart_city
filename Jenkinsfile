@@ -29,15 +29,21 @@ pipeline {
 
         stage('Configure Kubeconfig') {
             steps {
-                bat 'set KUBECONFIG=C:\\Users\\anish\\.kube\\config'
-                bat 'kubectl get nodes'
+                bat '''
+                set KUBECONFIG=C:\\Users\\anish\\.kube\\config
+                kubectl config current-context
+                kubectl get nodes
+                '''
             }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                bat 'kubectl apply -f deployment.yaml --validate=false'
-                bat 'kubectl apply -f service.yaml --validate=false'
+                bat '''
+                set KUBECONFIG=C:\\Users\\anish\\.kube\\config
+                kubectl apply -f deployment.yaml
+                kubectl apply -f service.yaml
+                '''
             }
         }
     }
