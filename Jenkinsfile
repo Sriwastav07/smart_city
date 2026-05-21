@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t anishasri07/smart-city-dashboard .'
+                bat 'docker build -t anishasri07/smart-city-dashboard:latest .'
             }
         }
 
@@ -21,7 +21,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                     bat '''
                     docker login -u %USER% -p %PASS%
-                    docker push anishasri07/smart-city-dashboard
+                    docker push anishasri07/smart-city-dashboard:latest
                     '''
                 }
             }
