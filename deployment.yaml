@@ -18,6 +18,7 @@ spec:
     spec:
       containers:
       - name: smart-city-container
-        image: anishasri07/smart-city-dashboard
+        image: anishasri07/smart-city-dashboard:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
